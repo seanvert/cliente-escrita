@@ -48,7 +48,7 @@ function CaixaContadorDePalavras(props: ContagemDePalavras) {
 }
 
 
-const LayoutAtividade = styled.div`
+const LayoutExercise = styled.div`
 display: flex;
 width: 100vw;
 flex-direction: column;
@@ -57,49 +57,51 @@ padding-left: 4rem;
 `;
 
 
-function CaixaTextoAtividade(props: object) {
-	const [ativo, setAtivo] = useState(false);
+function ExerciseScreenTextBox(props: object) {
+	const [active, setActive] = useState(false);
+	
 	const handleSubmit = useCallback(
 		() => {
-			document.getElementById("atividade").submit();
+			document.getElementById("textBox").submit();
 		},
 		[],
 	);
+	
 	useEffect(() => {
-	}, [ativo]);
+	}, [active]);
 
 	function onChange(e) {
-		setAtivo(true);
+		setActive(true);
 	}
 	
 	return(
-		<LayoutAtividade theme={props.theme} id="telaAtividade">
+		<LayoutExercise theme={props.theme} id="exerciseScreen">
 			<TextBox theme={props.theme}
 					 onChangeFunction={onChange}
 					 handleSubmit={handleSubmit}
 			/>
 			<Clock
 				theme={props.theme}
-				active={ativo} submit={handleSubmit}/>
-		</LayoutAtividade>
+				active={active} submit={handleSubmit}/>
+		</LayoutExercise>
 	);
-}
+};
 
 
-function Atividade() {
+function Exercise() {
 	return (
 		<ThemeContext.Consumer>
 			{theme => 
-				<CaixaTextoAtividade theme={theme} />
+				<ExerciseScreenTextBox theme={theme} />
 			}
 		</ThemeContext.Consumer>
 	);
-}
+};
 
 const Escrita: React.FC = (props) => {
     return (
-		<Atividade />
+		<Exercise />
     );
-}
+};
 
 export default Escrita;
