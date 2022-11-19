@@ -16,7 +16,7 @@ padding-bottom: 1vh;
 border-radius: 4rem;
 `;
 
-const Espacador = styled.div`
+const Spacer = styled.div`
 flex-grow: 1;
 `;
 
@@ -84,15 +84,15 @@ const Navbar: React.FC = (props) => {
 					Trilha
 				</LinkStyle>
 					
-					<Espacador>
-					</Espacador>
+					<Spacer>
+					</Spacer>
 					
 					<LinkStyle theme={theme} to="/escrita">
 					<LogoStyle src="logotipo.svg" />
 					</LinkStyle>
 					
-					<Espacador>
-					</Espacador>
+					<Spacer>
+					</Spacer>
 					
 					{loginLogoutBar(auth, theme)}
 				</NavStyle>
