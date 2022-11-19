@@ -80,7 +80,7 @@ function CaixaTextoAtividade(props: object) {
 			/>
 			<Clock
 				theme={props.theme}
-				ativo={ativo} envia={handleSubmit}/>
+				active={ativo} submit={handleSubmit}/>
 		</LayoutAtividade>
 	);
 }
