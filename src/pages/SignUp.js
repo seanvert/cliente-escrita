@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
 
-const Botao = styled.button`
+const Button = styled.button`
 border: none;
 border-radius: 1rem;
 min-height: 2.5rem;
@@ -11,7 +11,7 @@ background: ${props => props.theme.highlight};
 font-weight: bold;
 `;
 
-const CaixaTexto = styled.input`
+const InputTexto = styled.input`
 position: relative;
 padding: 0.5rem;
 flex-grow: 1;
@@ -44,7 +44,7 @@ align-self: center;
 color: ${props => props.theme.foreground};
 `;
 
-const Espacador = styled.div`
+const Spacer = styled.div`
 `;
 
 const Label = styled.label`
@@ -71,8 +71,8 @@ const SignUp: React.FC = (props) => {
 		<ThemeContext.Consumer>
 			{theme =>
 				<LayoutSignUp>
-					<Espacador>
-					</Espacador>
+					<Spacer>
+					</Spacer>
 					<FormSignUp theme={theme}
 								action={process.env.REACT_APP_AUTH_SIGNUP}
 								method="post">
@@ -80,39 +80,39 @@ const SignUp: React.FC = (props) => {
 						
 						<FormField>
 							<Label theme={theme}>Nome</Label>
-							<CaixaTexto theme={theme}
+							<InputTexto theme={theme}
 										required name="name" />
 						</FormField>
 						
 						<FormField>
 							<Label theme={theme}>Sobrenome</Label>
-							<CaixaTexto theme={theme}
+							<InputTexto theme={theme}
 										required name="last_name" />
 						</FormField>
 						
 						<FormField>
 							<Label theme={theme}>Email</Label>
-							<CaixaTexto theme={theme}
+							<InputTexto theme={theme}
 										required name="email" />
 						</FormField>
 
 						<FormField>
 							<Label theme={theme}>Usuário</Label>
-							<CaixaTexto theme={theme}
+							<InputTexto theme={theme}
 										required name="username" />
 						</FormField>
 
 						<FormField>
 							<Label theme={theme}>Senha</Label>
-							<CaixaTexto theme={theme}
+							<InputTexto theme={theme}
 										required name="password"
 										type="password" />
 						</FormField>
 
 						<ButtonField>
-							<Espacador>
-							</Espacador>
-							<Botao theme={theme}>Enviar</Botao>
+							<Spacer>
+							</Spacer>
+							<Button theme={theme}>Enviar</Button>
 						</ButtonField>				
 					</FormSignUp>
 				</LayoutSignUp>
