@@ -1,0 +1,5 @@
+* coisas para fazer
+** ver o que precisa fazer no layout
+** mexer na tela das trilhas
+*** consumir api do servidor
+** montar a landing page
