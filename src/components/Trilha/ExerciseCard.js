@@ -5,12 +5,12 @@ import CompletionIcon from "./CompletionIcon";
 import Button from "../Button";
 import DetailedView from "./DetailedView";
 
-const NomeAtividades = styled.h3`
+const ExerciseName = styled.h3`
 color: ${props => props.theme.foreground};
 text-align: center;
 `;
 
-const BotaoMostrarEsconderAtividade = styled.button`
+const ButtonToggleDescription = styled.button`
 border-width: 1px;
 min-height: 2rem;
 align-self: center;
@@ -19,7 +19,7 @@ font-weight: bold;
 `;
 
 
-const ItemAtividades = styled.div`
+const ItemExercises = styled.div`
 border-radius: 2rem;
 align-items: start;
 background-color: ${props => props.theme.background};
@@ -28,7 +28,7 @@ border: 1px solid;
 `;
 
 
-const ControlesAtividade = styled.div`
+const ExerciseControls = styled.div`
 display: grid;
 grid-template-columns: 1fr 10fr 1fr 1fr;
 grid-gap: 2rem;
@@ -41,10 +41,6 @@ function ExerciseCard (exercise: Exercise) {
 	const [visible, setVisible] = useState(false);
 
 	var current = exercise.exercise;
-	// componente com os items de cada atividade
-	// TODO colocar fotos
-	// TODO colocar alguma marcação se a atividade já foi feita
-	// TODO colocar alguma marcação para mostrar algum tipo de maestria
 	function changeVisibility() {
 		if (visible) {
 			setVisible(false);
@@ -54,8 +50,8 @@ function ExerciseCard (exercise: Exercise) {
 	}
 
 
-	function nomeBotao(visibilityState: bool) {
-		if (!visibilityState) {
+	function buttonName(visibilityState: bool) {
+		if (!visible) {
 			return "Expandir";
 		} else {
 			return "Esconder";
@@ -66,24 +62,24 @@ function ExerciseCard (exercise: Exercise) {
 	return (
 		<ThemeContext.Consumer>
 			{theme =>
-				<ItemAtividades theme={theme}>
-					<ControlesAtividade>
+				<ItemExercises theme={theme}>
+					<ExerciseControls>
 							<CompletionIcon completo={false} />
-						<NomeAtividades theme={theme}>
+						<ExerciseName theme={theme}>
 							{current.name}
-						</NomeAtividades>
+						</ExerciseName>
 						<Button theme={theme}>
 							Começar
 						</Button>
-						<BotaoMostrarEsconderAtividade
+						<ButtonToggleDescription
 							onClick={changeVisibility}>
-							{nomeBotao(visible)}
-						</BotaoMostrarEsconderAtividade>
-					</ControlesAtividade>
+							{buttonName(visible)}
+						</ButtonToggleDescription>
+					</ExerciseControls>
 					<DetailedView visible={visible}
 								  theme={theme}
 								  current={current} />
-				</ItemAtividades>
+				</ItemExercises>
 			}
 		</ThemeContext.Consumer>
 	);
