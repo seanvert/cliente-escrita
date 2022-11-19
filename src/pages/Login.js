@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
 import AuthContext from "../contexts/AuthContext";
 
-const Botao = styled.button`
+const Button = styled.button`
 border: none;
 border-radius: 1rem;
 min-height: 2.5rem;
@@ -12,7 +12,7 @@ background: ${props => props.theme.highlight};
 font-weight: bold;
 `;
 
-const CaixaTexto = styled.input`
+const InputText = styled.input`
 position: relative;
 padding: 0.5rem;
 flex-grow: 1;
@@ -23,7 +23,7 @@ outline: none;
 border: none;
 `;
 
-const FormularioLogin = styled.form`
+const LoginForm = styled.form`
 display: flex;
 flex-direction: column;
 color: ${props => props.theme.foreground};
@@ -48,12 +48,12 @@ flex-grow: 1;
 grid-template-columns: 1fr 1fr 1fr;
 `;
 
-const Cabecalho = styled.h2`
+const Header = styled.h2`
 align-self: center;
 color: ${props => props.theme.foreground};
 `;
 
-const Espacador = styled.div`
+const Spacer = styled.div`
 `;
 
 const Label = styled.label`
@@ -96,20 +96,20 @@ const Login: React.FC = (props) => {
 			<ThemeContext.Consumer>
 			{theme =>
 					<LayoutLogin>
-					<Espacador>
-					</Espacador>
+					<Spacer>
+					</Spacer>
 					<LoginBox theme={theme}>
-					<FormularioLogin
+					<LoginForm
 				theme={theme}
 				action={process.env.REACT_APP_AUTH_LOGIN}
 				method="post">
 
-					<Cabecalho theme={theme}>
+					<Header theme={theme}>
 					Login
-				</Cabecalho>
+				</Header>
 					<FormField>
 					<Label theme={theme}>Usuário</Label>
-					<CaixaTexto
+					<InputText
 				theme={theme}
 				onChange={(e) => setUsername(e.target.value)}
 				type="text"
@@ -120,7 +120,7 @@ const Login: React.FC = (props) => {
 					</FormField>
 					<FormField>
 					<Label theme={theme}>Senha</Label>
-					<CaixaTexto
+					<InputText
 				theme={theme}
 				onChange={(e) => setPassword(e.target.value)}
 				type="password"
@@ -131,15 +131,15 @@ const Login: React.FC = (props) => {
 					</FormField>
 
 
-				</FormularioLogin>
+				</LoginForm>
 					<ButtonField>
-					<Espacador>
-					</Espacador>
-					<Botao
+					<Spacer>
+					</Spacer>
+					<Button
 				onClick={handleLogin}
 				theme={theme}>
 					Enviar
-				</Botao>
+				</Button>
 					</ButtonField>
 					</LoginBox>
 					</LayoutLogin>
