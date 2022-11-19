@@ -4,7 +4,7 @@ import styled from "styled-components";
 import ConfigPopupExercise from "./ConfigPopupExercise";
 
 
-const DescricaoAtividade = styled.div`
+const ExerciseDescription = styled.div`
 flex-grow: 1;
 padding: 2rem;
 text-align: justify;
@@ -61,9 +61,9 @@ function DetailedView(props: {
 					</Button>
 				</ControlsDetailedView>
 				{configsView(props.theme)}
-				<DescricaoAtividade>
+				<ExerciseDescription>
 					{props.current.contents}
-				</DescricaoAtividade>
+				</ExerciseDescription>
 			</div>
 		);
 	}
