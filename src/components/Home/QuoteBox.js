@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const Quote = styled.blockquote`
 margin: 0px;
@@ -40,30 +40,32 @@ text-align: end;
 padding-right: 2rem;
 `;
 
-function QuoteFigureCaption (props) {
-	return (
-			<FigCaption>
-			    &mdash; Jeremy Keith, <cite>Mental models</cite>
-			</FigCaption>
-	);
-};
+function QuoteFigureCaption(props) {
+  return (
+    <FigCaption>
+      &mdash; Jeremy Keith,
+      {' '}
+      <cite>Mental models</cite>
+    </FigCaption>
+  );
+}
 
-function QuoteBox (props) {
-	return (
-			<LayoutQuote theme={props.theme}>
+function QuoteBox(props) {
+  return (
+    <LayoutQuote theme={props.theme}>
 
-			<QuoteFigure theme={props.theme}>
-			<Quote theme={props.theme}>
-			{props.children}
-		</Quote>
-			<QuoteFigureCaption
-		theme={props.theme}
-		source={props.source}
-			/>
+      <QuoteFigure theme={props.theme}>
+        <Quote theme={props.theme}>
+          {props.children}
+        </Quote>
+        <QuoteFigureCaption
+          theme={props.theme}
+          source={props.source}
+        />
 
-		</QuoteFigure>
-			</LayoutQuote>
-	);
+      </QuoteFigure>
+    </LayoutQuote>
+  );
 }
 
 export default QuoteBox;

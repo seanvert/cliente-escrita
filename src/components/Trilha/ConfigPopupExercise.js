@@ -1,8 +1,7 @@
-import styled from "styled-components";
-import Button from "../Button";
-import ThemeContext from "../../contexts/ThemeContext";
-import { useState, useEffect } from "react";
-
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import Button from '../Button';
+import ThemeContext from '../../contexts/ThemeContext';
 
 const LayoutConfigsPopup = styled.div`
 display: flex;
@@ -14,54 +13,52 @@ const SettingField = styled.div`
 `;
 
 function ConfigPopupExercise(props) {
-	const [defaultExercise, setDefaultExercise] = useState(false);
-	const [maxTime, setMaxTime] = useState(120);
-	// TODO:  fazer o botao de salvar esconder este componente
+  const [defaultExercise, setDefaultExercise] = useState(false);
+  const [maxTime, setMaxTime] = useState(120);
+  // TODO:  fazer o botao de salvar esconder este componente
 
-	function handleClick () {
-		// TODO: send configs to api
-		
-		props.toggleVisibilityFunction();
-	}
+  function handleClick() {
+    // TODO: send configs to api
 
-	useEffect(() => {
-		
-	}, []);
-	
-	return (
-			<ThemeContext.Consumer>
-			{theme =>
-					<LayoutConfigsPopup>
-					<SettingField>
-					Definir como padrão
-					<SetDefaultBox
-				type="checkbox"
-				checked={defaultExercise}
-				onClick={() => setDefaultExercise(!defaultExercise)}
-					>
-					</SetDefaultBox>
-					</SettingField>
+    props.toggleVisibilityFunction();
+  }
 
-					<SettingField>
-					Tempo máximo em segundos
-					<SetDefaultBox
-				value={maxTime}
-				onChange={(e) => {setMaxTime(e.target.value)}}
-					>
-					
-				</SetDefaultBox>
-					</SettingField>
-					
-					<Button
-				onClick={handleClick}
-				theme={theme}>
-					salvar
-				</Button>
-					</LayoutConfigsPopup>
-			}
-		</ThemeContext.Consumer>
-	);
-};
+  useEffect(() => {
+
+  }, []);
+
+  return (
+    <ThemeContext.Consumer>
+      {(theme) => (
+        <LayoutConfigsPopup>
+          <SettingField>
+            Definir como padrão
+            <SetDefaultBox
+              type="checkbox"
+              checked={defaultExercise}
+              onClick={() => setDefaultExercise(!defaultExercise)}
+            />
+          </SettingField>
+
+          <SettingField>
+            Tempo máximo em segundos
+            <SetDefaultBox
+              value={maxTime}
+              onChange={(e) => { setMaxTime(e.target.value); }}
+            />
+          </SettingField>
+
+          <Button
+            onClick={handleClick}
+            theme={theme}
+          >
+            salvar
+          </Button>
+        </LayoutConfigsPopup>
+      )}
+    </ThemeContext.Consumer>
+  );
+}
 
 const SetDefaultBox = styled.input`
 
