@@ -8,12 +8,6 @@ padding: 2rem;
 font-family: 'Libre Baskerville', serif;
 `;
 
-const AuthorPortrait = styled.img`
-max-height: 90px;
-place-self:center;
-border-radius: 8rem;
-`;
-
 const LayoutQuote = styled.div`
 display: grid;
 background-image: url("https://images6.fanpop.com/image/photos/37200000/Blink-Clarice-Ferguson-Wallpaper-x-men-37207678-1920-1080.jpg");
@@ -28,7 +22,6 @@ border: 1px solid;
 const QuoteFigure = styled.figure`
 display: flex;
 flex-direction: column;
-
 margin: 0;
 width: 100%;
 background-color: rgba(60, 60, 60, 0.75);
