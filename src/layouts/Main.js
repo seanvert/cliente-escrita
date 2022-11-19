@@ -43,6 +43,6 @@ const Main: React.FC<{ title: string; children: React.ReactNode }> = (props) => 
 			}
 		</ThemeContext.Consumer>
     );
-}
+};
 
 export default Main;
