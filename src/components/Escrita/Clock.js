@@ -2,38 +2,38 @@ import React, { useEffect, useState } from 'react';
 import styled from "styled-components";
 import { FaRegClock } from 'react-icons/fa';
 
-const RelogioStyle = styled.div`
+const LayoutClock = styled.div`
 align-items: center;
 display: flex;
 flex-direction: column;
 `;
 
-interface Tempo {
-	tempo: number,
-	ativo: bool,
-	envia: (void) => {},
+interface Time {
+	time: number,
+	active: bool,
+	submit: (void) => {},
 }
 
-function Clock ({tempo, ativo, envia}: Tempo) {
-	const [tempoRestante, defineTempoRestante] = useState(10);
+function Clock ({time, active, submit}: Tempo) {
+	const [timeRemaining, setTimeRemaining] = useState(10);
 	
 	useEffect(() => {
-		if (ativo && tempoRestante > 0) {
+		if (active && timeRemaining > 0) {
 			const timerID = setInterval(
-				() => {defineTempoRestante(tempoRestante - 1);},
+				() => {setTimeRemaining(timeRemaining - 1);},
 				1000);
 			return () => { clearInterval(timerID); };
-		} else if (tempoRestante === 0) {
-			return envia();
+		} else if (timeRemaining === 0) {
+			return submit();
 		}
-	}, [tempoRestante, ativo, envia]);
+	}, [timeRemaining, active, submit]);
 	
-	if (ativo){
+	if (active){
 		return (
-			<RelogioStyle>
-				{tempoRestante}
+			<LayoutClock>
+				{timeRemaining}
 				<FaRegClock />
-			</RelogioStyle>
+			</LayoutClock>
 		);
 	}
 }
