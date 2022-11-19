@@ -14,7 +14,7 @@ flex-direction: column;
 border: 1px solid;
 `;
 
-const LayoutLista = styled.ul`
+const LayoutList = styled.ul`
 align-self: center;
 `;
 
@@ -30,7 +30,7 @@ function NewFeatures(props) {
       <FeaturesHeader theme={props.theme}>
         Funcionalidades
       </FeaturesHeader>
-      <LayoutLista>
+      <LayoutList>
         {features.map((e) => (
           <li>
             <LinkFeatures
@@ -41,7 +41,7 @@ function NewFeatures(props) {
             </LinkFeatures>
           </li>
         ))}
-      </LayoutLista>
+      </LayoutList>
     </LayoutNewFeatures>
   );
   // TODO: colocar uma caixa de sugestões
