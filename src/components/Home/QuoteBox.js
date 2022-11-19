@@ -15,8 +15,6 @@ background-size: 100%;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;
 border: 1px solid;
-
-}
 `;
 
 const QuoteFigure = styled.figure`

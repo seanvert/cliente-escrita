@@ -15,7 +15,6 @@ const SettingField = styled.div`
 function ConfigPopupExercise(props) {
   const [defaultExercise, setDefaultExercise] = useState(false);
   const [maxTime, setMaxTime] = useState(120);
-  // TODO:  fazer o botao de salvar esconder este componente
 
   function handleClick() {
     // TODO: send configs to api
