@@ -3,7 +3,7 @@ import React from "react";
 import styled from 'styled-components';
 
 function Icon (props: { completo: bool }) {
-	if (props.completo) {
+	if (props.completed) {
 		return <BsSlashSquare />;
 	} else {
 		return <BsSquare />;
@@ -19,7 +19,7 @@ function CompletionIcon (props) {
 	
 	return(
 		<IconStyle>
-			<Icon completo={props.completo}/>
+			<Icon completed={props.completed}/>
 		</IconStyle>
 	);
 };

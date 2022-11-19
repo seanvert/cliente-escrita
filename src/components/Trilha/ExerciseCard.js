@@ -64,7 +64,7 @@ function ExerciseCard (exercise: Exercise) {
 			{theme =>
 				<ItemExercises theme={theme}>
 					<ExerciseControls>
-							<CompletionIcon completo={false} />
+							<CompletionIcon completed={false} />
 						<ExerciseName theme={theme}>
 							{current.name}
 						</ExerciseName>
