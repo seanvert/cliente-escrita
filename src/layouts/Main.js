@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
 
-const Conteudo = styled.div`
+const Contents = styled.div`
 flex-grow: 1;
 display: flex;
 width: 100vw;
@@ -35,9 +35,9 @@ const Main: React.FC<{ title: string; children: React.ReactNode }> = (props) => 
 			{theme => 
 				<AppStyle theme={theme}>
 	    			<Header />
-					<Conteudo id="content">
+					<Contents id="content">
 						<Outlet />
-					</Conteudo>
+					</Contents>
 					<Footer />
 				</AppStyle>
 			}
