@@ -7,15 +7,15 @@ export const AuthProvider: React.FC = ({ children }) => {
 	const [user, setUser] = useState(null);
 
 	async function Login (loginInfo) {
-		const response = postData("http://192.168.0.100:8000/auth/login",
+		const response = postData(process.env.REACT_APP_AUTH_LOGIN,
 								  loginInfo)
 			  .then((response) => response.json())
 			  .then((json) => {
-				  console.log(json);
 				  setUser(json.user);
 				  localStorage.setItem('@App:user',
 									   JSON.stringify(json.user));
-
+				  sessionStorage.setItem('@App:user',
+										 JSON.stringify(json.user));
 			  })
 			  .catch((e) => console.log(e));
 	}
@@ -25,7 +25,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 		// TODO: limpar os cookies de sessão
 		sessionStorage.removeItem('@App:user');
 		localStorage.removeItem('@App:user');
-		
+		window.location.replace(process.env.REACT_APP_AUTH_LOGOUT);
 	}
 
 	useEffect(() => {
@@ -43,26 +43,23 @@ export const AuthProvider: React.FC = ({ children }) => {
 	);
 };
 
-// process.env.REACT_APP_AUTH_LOGIN
 
 
-// Example POST method implementation:
 async function postData(url = '', data = {}) {
 	const headersreq = {'Content-Type': 'application/x-www-form-urlencoded',
-						'Access-Control-Allow-Origin':'192.168.0.100:3000',
-						'Access-Control-Allow-Methods':'POST,PATCH,OPTIONS',
 						'Upgrade-Insecure-Requests': '1',};
 
 	const response = await fetch(url, {
 		method: 'POST',
 		mode: 'cors',
-		cache: 'no-cache',
-		credentials: 'same-origin',
+		// cache: 'no-cache',
+		credentials: 'include',
 		headers: headersreq,
 		redirect: 'follow',
 		referrerPolicy: 'no-referrer',
 		body: new URLSearchParams(data)
 	});
+
 	return response;
 }
 
