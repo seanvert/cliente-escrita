@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
@@ -83,7 +84,9 @@ const Login: React.FC = (props) => {
 		username: username,
 		password: password,
 	};
-	function handleLogin() {
+	function handleLogin(e) {
+		e.preventDefault();
+		// fetch
 		auth.Login(data);
 	}
 
@@ -93,59 +96,64 @@ const Login: React.FC = (props) => {
 	}, [username, password]);
 
 	return (
-			<ThemeContext.Consumer>
+		<ThemeContext.Consumer>
 			{theme =>
-					<LayoutLogin>
+				<LayoutLogin>
 					<Spacer>
 					</Spacer>
 					<LoginBox theme={theme}>
-					<LoginForm
+						<LoginForm
+							id="loginForm"
 				theme={theme}
-				action={process.env.REACT_APP_AUTH_LOGIN}
-				method="post">
+				onSubmit={(e) => handleLogin(e)}
+							action={process.env.REACT_APP_AUTH_LOGIN}
+				method="post"
+					>
 
-					<Header theme={theme}>
-					Login
-				</Header>
-					<FormField>
-					<Label theme={theme}>Usuário</Label>
-					<InputText
-				theme={theme}
-				onChange={(e) => setUsername(e.target.value)}
-				type="text"
-				value={username}
-				name="username"
-				required
-					/>
-					</FormField>
-					<FormField>
-					<Label theme={theme}>Senha</Label>
-					<InputText
-				theme={theme}
-				onChange={(e) => setPassword(e.target.value)}
-				type="password"
-				value={password}
-				name="password"
-				required
-					/>
-					</FormField>
-
-
-				</LoginForm>
-					<ButtonField>
-					<Spacer>
-					</Spacer>
+							<Header theme={theme}>
+								Login
+							</Header>
+							<FormField>
+								<Label theme={theme}>Usuário</Label>
+								<InputText
+									theme={theme}
+									onChange={(e) => setUsername(e.target.value)}
+									type="text"
+									value={username}
+									name="username"
+									required
+								/>
+							</FormField>
+							<FormField>
+								<Label theme={theme}>Senha</Label>
+								<InputText
+									theme={theme}
+									onChange={(e) => setPassword(e.target.value)}
+									type="password"
+									value={password}
+									name="password"
+									required
+								/>
+							</FormField>
+						<ButtonField>
+							<Spacer>
+							</Spacer>
 					<Button
-				onClick={handleLogin}
-				theme={theme}>
-					Enviar
-				</Button>
-					</ButtonField>
+				id="submitButton"
+								onClick={handleLogin}
+								theme={theme}>
+								Enviar
+							</Button>
+
+						</ButtonField>
+						</LoginForm>
+
 					</LoginBox>
-					</LayoutLogin>
+				</LayoutLogin>
 			}
 		</ThemeContext.Consumer>
 	);
 };
+
 
 export default Login;
