@@ -62,7 +62,7 @@ function GreetUser(props) {
 				>
 				Que bom te ver de volta, {auth.user.username}!
 			</UserGreeting>
-				você fez isso e falta outras csoisa
+				Seu último login foi em {auth.user.last_login}
 			</LayoutGreetUser>
 		);
 	} else {
