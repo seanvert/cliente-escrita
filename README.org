@@ -1,5 +1,12 @@
-* coisas para fazer
-** ver o que precisa fazer no layout
-** mexer na tela das trilhas
+* cliente
+** trilhas
 *** consumir api do servidor
-** montar a landing page
+*** consumir api de quotes
+** home
+*** botao like nas quotes
+*** créditos do livro 
+*** fazer a página home quando o usuário não está logado
+** public index
+*** trocar o logo do react
+
+
