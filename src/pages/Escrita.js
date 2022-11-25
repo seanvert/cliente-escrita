@@ -78,7 +78,7 @@ function ExerciseScreenTextBox(props: object) {
 		<LayoutExercise theme={props.theme} id="exerciseScreen">
 			<TextBox theme={props.theme}
 					 onChangeFunction={onChange}
-					 handleSubmit={handleSubmit}
+					 submit={handleSubmit}
 			/>
 			<Clock
 				theme={props.theme}
