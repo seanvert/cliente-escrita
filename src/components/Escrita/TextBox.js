@@ -38,10 +38,10 @@ function TextBox(props) {
   return (
     <Form
       theme={props.theme}
-      id="atividade"
+      id="textBox"
       action={process.env.REACT_APP_DB_HOST_TEXTS}
       method="post"
-      onSubmit={props.handleSubmit}
+
     >
       <Input
         theme={props.theme}
@@ -49,8 +49,9 @@ function TextBox(props) {
         autoFocus
         name="conteudo"
         value={text}
-        onChange={(e) => { handleChange(e); }}
-      />
+      onChange={(e) => {
+		  handleChange(e);
+	  }} />
     </Form>
   );
 }
