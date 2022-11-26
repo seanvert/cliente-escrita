@@ -78,22 +78,13 @@ grid-template-columns: 2fr 1fr;
 
 const Login: React.FC = (props) => {
 	const auth = useContext(AuthContext);
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const data = {
-		username: username,
-		password: password,
-	};
+	const [userData, setUserData] = useState({});
+
 	function handleLogin(e) {
 		e.preventDefault();
 		// fetch
-		auth.Login(data);
+		auth.Login(userData);
 	}
-
-	useEffect(() => {
-		data.username = username;
-		data.password = password;
-	}, [username, password]);
 
 	return (
 		<ThemeContext.Consumer>
@@ -117,9 +108,13 @@ const Login: React.FC = (props) => {
 								<Label theme={theme}>Usuário</Label>
 								<InputText
 									theme={theme}
-									onChange={(e) => setUsername(e.target.value)}
+				onChange={(e) =>
+					setUserData({
+						username: e.target.value,
+						password: userData.password
+					})}
 									type="text"
-									value={username}
+									value={userData.username}
 									name="username"
 									required
 								/>
@@ -128,9 +123,13 @@ const Login: React.FC = (props) => {
 								<Label theme={theme}>Senha</Label>
 								<InputText
 									theme={theme}
-									onChange={(e) => setPassword(e.target.value)}
+				onChange={(e) =>
+					setUserData({
+						username: userData.username,
+						password: e.target.value
+					})}
 									type="password"
-									value={password}
+									value={userData.password}
 									name="password"
 									required
 								/>
