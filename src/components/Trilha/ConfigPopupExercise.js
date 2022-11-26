@@ -18,10 +18,11 @@ function ConfigPopupExercise(props) {
 	const [maxTime, setMaxTime] = useState(120);
 	const auth = useContext(AuthContext);
 	// TODO: get an exercise id
+	const id = props.exercise._id;
 	function handleClick() {
 		// TODO: send configs to api
 		if (auth.signed) {
-			
+			console.log(_id);
 		}
 		props.toggleVisibilityFunction();
 	}
@@ -38,7 +39,7 @@ function ConfigPopupExercise(props) {
 					Definir como padrão
 					<SetDefaultBox
 				type="checkbox"
-				checked={defaultExercise}
+				checked={props.exercise.defaultExercise}
 				onClick={() => setDefaultExercise(!defaultExercise)}
 					/>
 					</SettingField>
