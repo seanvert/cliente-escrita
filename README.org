@@ -6,6 +6,8 @@
 *** botao like nas quotes
 *** créditos do livro 
 *** fazer a página home quando o usuário não está logado
+*** consertar a fonte (source API) das quotes
+
 ** public index
 *** trocar o logo do react
 
