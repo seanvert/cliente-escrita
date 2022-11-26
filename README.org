@@ -1,14 +1,26 @@
 * cliente
-** trilhas
-*** consumir api do servidor
-*** consumir api de quotes
+** eslint
 ** home
 *** botao like nas quotes
-*** créditos do livro 
-*** fazer a página home quando o usuário não está logado
+*** adicionar um botão para reportar quotes
 *** consertar a fonte (source API) das quotes
-
+*** layout responsivo
+*** consertar a formatação da data do último login
+* mvp
 ** public index
 *** trocar o logo do react
-
+** home
+*** créditos do livro
+*** arrumar uma citação boa sobre escrita e adicionar elas na api
+*** no máximo 20 palavras no texto do hero
+** trilhas
+*** montar o botão começar
+id exercicio
+fetch id exercise pra api
+pego a resposta do server
+mostro um popup com as informações
+fecho o popup qdo tiver um clique
+redireciono pro escrita
+** escrita
+*** montar um popup que renderiza a atividade do servidor
 
