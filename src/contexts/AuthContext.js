@@ -16,6 +16,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 									   JSON.stringify(json.user));
 				  sessionStorage.setItem('@App:user',
 										 JSON.stringify(json.user));
+				  window.location.replace(process.env.REACT_APP_URL);
 			  })
 			  .catch((e) => console.log(e));
 	}
