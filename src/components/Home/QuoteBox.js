@@ -9,8 +9,6 @@ padding: 2rem;
 font-family: 'Libre Baskerville', serif;
 `;
 
-const Jumbotron = styled.div`
-`;
 
 // TODO: arrumar um quote que preste sobre escrita
 const LayoutQuote = styled.div`
