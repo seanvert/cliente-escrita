@@ -6,21 +6,16 @@ import QuoteBox from "../components/Home/QuoteBox";
 import ActivityWidget from "../components/Home/ActivityWidget";
 import NewFeatures from "../components/Home/NewFeatures";
 
+
 // TODO: mudar o layout pra ficar responsivo
 // deixar as colunas pra 3 2 e 1
 const LayoutHome = styled.div`
 width: 100vw;
 padding-left: 2rem;
 padding-right: 2rem;
-display: grid;
-grid-templates-rows: repeat(2, 1fr);
-grid-template-columns: 2fr 3fr 2fr;
-grid-gap: 1rem;
-`;
+display: flex;
+flex-direction: column;
 
-const Banner = styled.div`
-border-radius: 2rem;
-background-color: red;
 `;
 
 interface quoteapi {
@@ -80,15 +75,13 @@ function UserWidgets(props) {
 		return (
 			<ActivityWidget theme={props.theme} />
 		);
+	} else {
+		return null;
 	}
 }
 
 function Home() {
-	const auth = useContext(AuthContext);
 	const theme = useContext(ThemeContext);
-	function fetchHome(auth) {
-		
-	}
 	
 	return(
 		<LayoutHome>

@@ -9,11 +9,15 @@ padding: 2rem;
 font-family: 'Libre Baskerville', serif;
 `;
 
-// TODO: consertar a foto de fundo
+const Jumbotron = styled.div`
+`;
+
+// TODO: arrumar um quote que preste sobre escrita
 const LayoutQuote = styled.div`
 display: grid;
 background-image: url("https://images6.fanpop.com/image/photos/37200000/Blink-Clarice-Ferguson-Wallpaper-x-men-37207678-1920-1080.jpg");
 background-size: 100%;
+min-height: 70vh;
 grid-template-columns: 1fr;
 grid-template-rows: 1fr;
 border: 1px solid;
