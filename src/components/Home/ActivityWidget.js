@@ -32,7 +32,7 @@ function WeekDayBar(props) {
       {week.map((d) => <div>{d}</div>)}
     </LayoutWeekDayBar>
   );
-}
+};
 
 function WeeklyActivityBar(props) {
   const days = [...Array(7).keys()];
@@ -41,7 +41,7 @@ function WeeklyActivityBar(props) {
       {days.map((d) => <ActivityDayBox theme={props.theme} />)}
     </LayoutWeekDayBar>
   );
-}
+};
 
 const LayoutMonthlyBar = styled.div`
 display: grid;
@@ -65,12 +65,12 @@ function ActivityWidget(props) {
   return (
     <LayoutActivityWidget>
       <WeekDayBar />
-      <MonthActivityBar theme={props.theme} />
-      <MonthActivityBar theme={props.theme} />
-      <MonthActivityBar theme={props.theme} />
-      <MonthActivityBar theme={props.theme} />
-      <MonthActivityBar theme={props.theme} />
-      <MonthActivityBar theme={props.theme} />
+		  <MonthActivityBar key="firstMonth" theme={props.theme} />
+      <MonthActivityBar key="secondMonth" theme={props.theme} />
+      <MonthActivityBar key="thirdMonth" theme={props.theme} />
+      <MonthActivityBar key="fourthMonth" theme={props.theme} />
+      <MonthActivityBar key="fifthMonth" theme={props.theme} />
+      <MonthActivityBar key="sixthMonth" theme={props.theme} />
     </LayoutActivityWidget>
   );
 }
