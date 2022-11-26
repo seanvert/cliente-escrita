@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
 import ThemeContext from "../../contexts/ThemeContext";
 import CompletionIcon from "./CompletionIcon";
 import Button from "../Button";
 import DetailedView from "./DetailedView";
+import  AuthContext from "../../contexts/AuthContext";
 
 const ExerciseName = styled.h3`
 color: ${props => props.theme.foreground};
@@ -38,6 +39,8 @@ padding-right: 2rem;
 
 
 function ExerciseCard (exercise: Exercise) {
+	const auth = useContext(AuthContext);
+	const user = auth.user;
 	const [visible, setVisible] = useState(false);
 
 	var current = exercise.exercise;
@@ -58,24 +61,36 @@ function ExerciseCard (exercise: Exercise) {
 		}
 	};
 
-	
+	function handleStart () {
+		// TODO: stub da função que começa o exercício
+	}
+	// props.index índice ddo vetor do usuário
+	// user.configs[props.index].config.completed
 	return (
 		<ThemeContext.Consumer>
 			{theme =>
 				<ItemExercises theme={theme}>
 					<ExerciseControls>
-							<CompletionIcon completed={false} />
-						<ExerciseName theme={theme}>
-							{current.name}
-						</ExerciseName>
-						<Button theme={theme}>
+					
+					<CompletionIcon completed={true} />
+					
+					<ExerciseName theme={theme}>
+					{current.name}
+				</ExerciseName>
+					
+						<Button
+							onClick={handleStart}
+							theme={theme}>
 							Começar
-						</Button>
-						<ButtonToggleDescription
-							onClick={changeVisibility}>
-							{buttonName(visible)}
-						</ButtonToggleDescription>
-					</ExerciseControls>
+				</Button>
+					
+					<ButtonToggleDescription
+				onClick={changeVisibility}>
+					{buttonName(visible)}
+				</ButtonToggleDescription>
+					
+				</ExerciseControls>
+					
 					<DetailedView visible={visible}
 								  theme={theme}
 								  current={current} />
