@@ -54,8 +54,6 @@ const Navbar: React.FC = (props) => {
 		if (!auth.signed) {
 			return(
 				<LoginLogoutBar>
-					<LinkStyle theme={theme} to="/signup">Sign Up
-				</LinkStyle>
 					<LinkStyle theme={theme} to="/login">Login
 				</LinkStyle>
 					</LoginLogoutBar>
