@@ -40,6 +40,7 @@ function DetailedView(props: {
 		if(configsVisible) {
 			return (
 					<ConfigPopupExercise
+				exercise={props.current}
 				toggleVisibilityFunction={toggleConfigsView}
 				theme={props.theme} />
 			);
