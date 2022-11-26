@@ -60,8 +60,8 @@ function GreetUser(props) {
 				<UserGreeting
 					theme={props.theme}
 				>
-				Que bom te ver de volta, {auth.user.username}!
-			</UserGreeting>
+					Que bom te ver de volta, {auth.user.username}!
+				</UserGreeting>
 				Seu último login foi em {auth.user.last_login}
 			</LayoutGreetUser>
 		);
@@ -74,6 +74,14 @@ function GreetUser(props) {
 	}
 }
 
+function UserWidgets(props) {
+	const auth = useContext(AuthContext);
+	if(auth.signed) {
+		return (
+			<ActivityWidget theme={props.theme} />
+		);
+	}
+}
 
 function Home() {
 	const auth = useContext(AuthContext);
@@ -89,7 +97,7 @@ function Home() {
 			    But web browsers aren’t like web servers. If your back-end code is getting so big that it’s starting to run noticably slowly, you can throw more computing power at it by scaling up your server. That’s not an option on the front-end where you don’t really have one run-time environment—your end users have their own run-time environment with its own constraints around computing power and network connectivity.
 			</QuoteBox>
 			<NewFeatures theme={theme} />
-			<ActivityWidget theme={theme} />
+			<UserWidgets theme={theme} />
 		</LayoutHome>
 	);
 }
