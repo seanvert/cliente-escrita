@@ -46,12 +46,12 @@ border: 1px solid;
 `;
 
 
-function ExerciseCard (exercise: Exercise) {
+function ExerciseCard ({key, index, exercise}: Exercise) {
 	const auth = useContext(AuthContext);
 	const user = auth.user;
 	const [visible, setVisible] = useState(false);
 
-	var current = exercise.exercise;
+	var current = exercise;
 	function changeVisibility() {
 		if (visible) {
 			setVisible(false);
@@ -97,12 +97,15 @@ function ExerciseCard (exercise: Exercise) {
 	return (
 			<ThemeContext.Consumer>
 			{theme =>
-					<ItemExercises theme={theme}>
+					<ItemExercises
+				theme={theme}>
 					<ExerciseControls>
 					
-					<CompletionIcon completed={current.defaultExercise} />
+					<CompletionIcon
+				completed={current.defaultExercise} />
 					
-					<ExerciseName theme={theme}>
+					<ExerciseName
+				theme={theme}>
 					{current.name}
 				</ExerciseName>
 					
@@ -119,7 +122,8 @@ function ExerciseCard (exercise: Exercise) {
 					
 				</ExerciseControls>
 					
-					<DetailedView visible={visible}
+					<DetailedView
+				visible={visible}
 				theme={theme}
 				current={current} />
 					</ItemExercises>

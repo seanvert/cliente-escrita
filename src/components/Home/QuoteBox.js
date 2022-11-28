@@ -35,7 +35,7 @@ text-align: end;
 padding-right: 2rem;
 `;
 
-function QuoteFigureCaption(props) {
+function QuoteFigureCaption({theme}) {
 	return (
 			<FigCaption>
 			&mdash; Jeremy Keith,
@@ -45,7 +45,7 @@ function QuoteFigureCaption(props) {
 	);
 }
 
-function QuoteBox(props) {
+function QuoteBox({theme}) {
 	const [loading, setLoading] = useState(true);
 	const url = "http://192.168.0.100:8000/quotes";
 	const [quote, setQuote] = useState({});
@@ -78,13 +78,13 @@ function QuoteBox(props) {
 		);
 	} else {
 		return (
-				<LayoutQuote theme={props.theme}>
-				<QuoteFigure theme={props.theme}>
-				<Quote theme={props.theme}>
+				<LayoutQuote theme={theme}>
+				<QuoteFigure theme={theme}>
+				<Quote theme={theme}>
 				{quote.quote}
 			</Quote>
 				<QuoteFigureCaption
-			theme={props.theme}
+			theme={theme}
 			source={quote.source}
 				/>
 

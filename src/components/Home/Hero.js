@@ -48,7 +48,7 @@ font-size: 1.5rem;
 max-width 30vw;
 `;
 
-function HeroHeader (props) {
+function HeroHeader ({theme}) {
 	return (
 			<div>
 			<HeaderAppName>
@@ -58,25 +58,26 @@ function HeroHeader (props) {
 								<HeaderSpacer />
 						<AppNameCaption>
 		</AppNameCaption>
-			<HorizontalLine theme={props.theme} />
+			<HorizontalLine theme={theme} />
 			</div>
 	);
 }
 
-function Hero (props) {
+function Hero ({theme}) {
 	function handleClick() {
 		window.location.replace("/Signup");
 	}
 	
 	return (
-			<LayoutHero theme={props.theme}>
+			<LayoutHero theme={theme}>
 			<HeroHeader />
 			<HeroText>
 			That’s not an option on the front-end where you don’t really have one run-time environment—your end users have their own run-time environment with its own constraints around computing power and network connectivity.
 			</HeroText>
 			<CallToAction
+		id="callToAction"
 		onClick={handleClick}
-		theme={props.theme}>
+		theme={theme}>
 			Cadastre-se
 			</CallToAction>
 			</LayoutHero>

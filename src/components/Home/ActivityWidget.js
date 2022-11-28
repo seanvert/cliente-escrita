@@ -25,7 +25,7 @@ grid-gap: 1px;
 margin-right: 1px;
 `;
 
-function WeekDayBar(props) {
+function WeekDayBar({theme}) {
   const week = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'];
   return (
     <LayoutWeekDayBar>
@@ -34,11 +34,11 @@ function WeekDayBar(props) {
   );
 };
 
-function WeeklyActivityBar(props) {
+function WeeklyActivityBar({theme}) {
   const days = [...Array(7).keys()];
   return (
     <LayoutWeekDayBar>
-      {days.map((d) => <ActivityDayBox theme={props.theme} />)}
+      {days.map((d) => <ActivityDayBox theme={theme} />)}
     </LayoutWeekDayBar>
   );
 };
@@ -50,27 +50,27 @@ grid-gap: 1px;
 margin-right: 1px;
 `;
 
-function MonthActivityBar(props) {
+function MonthActivityBar({theme}) {
   return (
     <LayoutMonthlyBar>
-      <WeeklyActivityBar theme={props.theme} />
-      <WeeklyActivityBar theme={props.theme} />
-      <WeeklyActivityBar theme={props.theme} />
-      <WeeklyActivityBar theme={props.theme} />
+      <WeeklyActivityBar theme={theme} />
+      <WeeklyActivityBar theme={theme} />
+      <WeeklyActivityBar theme={theme} />
+      <WeeklyActivityBar theme={theme} />
     </LayoutMonthlyBar>
   );
 }
 
-function ActivityWidget(props) {
+function ActivityWidget({theme}) {
   return (
     <LayoutActivityWidget>
       <WeekDayBar />
-		  <MonthActivityBar key="firstMonth" theme={props.theme} />
-      <MonthActivityBar key="secondMonth" theme={props.theme} />
-      <MonthActivityBar key="thirdMonth" theme={props.theme} />
-      <MonthActivityBar key="fourthMonth" theme={props.theme} />
-      <MonthActivityBar key="fifthMonth" theme={props.theme} />
-      <MonthActivityBar key="sixthMonth" theme={props.theme} />
+		  <MonthActivityBar key="firstMonth" theme={theme} />
+      <MonthActivityBar key="secondMonth" theme={theme} />
+      <MonthActivityBar key="thirdMonth" theme={theme} />
+      <MonthActivityBar key="fourthMonth" theme={theme} />
+      <MonthActivityBar key="fifthMonth" theme={theme} />
+      <MonthActivityBar key="sixthMonth" theme={theme} />
     </LayoutActivityWidget>
   );
 }

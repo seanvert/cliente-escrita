@@ -19,10 +19,10 @@ padding-left: 1rem;
 `;
 
 
-function DetailedView(props: {
-	// visible: bool,
-	// theme: ,
-	// contents: ,
+function DetailedView({
+	visible,
+	theme,
+	current
 }) {
 	const [configsVisible, setConfigsVisible] = useState(false);
 
@@ -40,30 +40,30 @@ function DetailedView(props: {
 		if(configsVisible) {
 			return (
 					<ConfigPopupExercise
-				exercise={props.current}
+				exercise={current}
 				toggleVisibilityFunction={toggleConfigsView}
-				theme={props.theme} />
+				theme={theme} />
 			);
 		}
 	};
 
 	
-	if (props.visible) {
+	if (visible) {
 		return (
 			<div>
 				<ControlsDetailedView>
-					<Button theme={props.theme}>
+					<Button theme={theme}>
 						Pular
 					</Button>
 					<Button
 						onClick={toggleConfigsView}
-						theme={props.theme}>
+						theme={theme}>
 						Configurações
 					</Button>
 				</ControlsDetailedView>
-				{configsView(props.theme)}
+				{configsView(theme)}
 				<ExerciseDescription>
-					{props.current.contents}
+					{current.contents}
 				</ExerciseDescription>
 			</div>
 		);

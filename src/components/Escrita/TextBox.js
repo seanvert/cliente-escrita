@@ -27,24 +27,28 @@ flex-grow: 1;
 display: flex;
 `;
 
-function TextBox(props) {
+function TextBox({
+	theme,
+	onChangeFunction,
+	submit
+}) {
   const [text, setText] = useState('');
 
   function handleChange(e) {
     setText(e.target.value);
-    props.onChangeFunction(e);
+    onChangeFunction(e);
   }
 
   return (
     <Form
-      theme={props.theme}
+      theme={theme}
       id="textBox"
       action={process.env.REACT_APP_DB_HOST_TEXTS}
       method="post"
 
     >
       <Input
-        theme={props.theme}
+        theme={theme}
         placeholder="Escreva aqui"
         autoFocus
         name="conteudo"

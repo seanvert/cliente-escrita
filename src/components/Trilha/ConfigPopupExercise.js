@@ -13,18 +13,22 @@ const SettingField = styled.div`
 
 `;
 
-function ConfigPopupExercise(props) {
+function ConfigPopupExercise({
+	exercise,
+	toggleVisibilityFunction,
+	theme
+}) {
 	const [defaultExercise, setDefaultExercise] = useState(false);
 	const [maxTime, setMaxTime] = useState(120);
 	const auth = useContext(AuthContext);
 	// TODO: get an exercise id
-	const id = props.exercise._id;
+	const id = exercise._id;
 	function handleClick() {
 		// TODO: send configs to api
 		if (auth.signed) {
-			console.log(_id);
+			console.log(id);
 		}
-		props.toggleVisibilityFunction();
+		toggleVisibilityFunction();
 	}
 
 	useEffect(() => {
@@ -32,14 +36,12 @@ function ConfigPopupExercise(props) {
 	}, []);
 
 	return (
-			<ThemeContext.Consumer>
-			{(theme) => (
 					<LayoutConfigsPopup>
 					<SettingField>
 					Definir como padrão
 					<SetDefaultBox
 				type="checkbox"
-				checked={props.exercise.defaultExercise}
+				checked={exercise.defaultExercise}
 				onClick={() => setDefaultExercise(!defaultExercise)}
 					/>
 					</SettingField>
@@ -59,8 +61,7 @@ function ConfigPopupExercise(props) {
 					salvar
 				</Button>
 					</LayoutConfigsPopup>
-			)}
-		</ThemeContext.Consumer>
+
 	);
 }
 

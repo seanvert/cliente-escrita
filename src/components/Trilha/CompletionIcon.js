@@ -15,11 +15,11 @@ display: flex;
 align-items: center;
 `;
 
-function CompletionIcon (props) {
+function CompletionIcon ({completed}) {
 	
 	return(
 		<IconStyle>
-			<Icon completed={props.completed}/>
+			<Icon completed={completed}/>
 		</IconStyle>
 	);
 };

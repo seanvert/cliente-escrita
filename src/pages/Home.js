@@ -62,14 +62,15 @@ flex-direction: column;
 border: 1px solid;
 `;
 
-function GreetUser(props) {
+function GreetUser({theme}) {
 	const auth = useContext(AuthContext);
 	
 	if (auth.signed) {
 		return (
 			<LayoutGreetUser>
 				<UserGreeting
-					theme={props.theme}
+			id="userGreeting"
+					theme={theme}
 				>
 					Que bom te ver de volta, {auth.user.username}!
 				</UserGreeting>
@@ -85,11 +86,11 @@ function GreetUser(props) {
 	}
 }
 
-function UserWidgets(props) {
+function UserWidgets({theme}) {
 	const auth = useContext(AuthContext);
 	if(auth.signed) {
 		return (
-			<ActivityWidget theme={props.theme} />
+			<ActivityWidget theme={theme} />
 		);
 	} else {
 		return null;

@@ -18,7 +18,7 @@ const LayoutList = styled.ul`
 align-self: center;
 `;
 
-function NewFeatures(props) {
+function NewFeatures({theme}) {
 	// TODO: montar um esquema disso
 	const features = ['automatizar quotes',
 					  'adicionar mais exercícios',
@@ -26,15 +26,15 @@ function NewFeatures(props) {
 					  'montar nuvem de palavras',
 					  'sugestões'];
 	return (
-			<LayoutNewFeatures theme={props.theme}>
-			<FeaturesHeader theme={props.theme}>
+			<LayoutNewFeatures theme={theme}>
+			<FeaturesHeader theme={theme}>
 			Funcionalidades
 		</FeaturesHeader>
 			<LayoutList>
 			{features.map((e) => (
 					<li key={e}>
 					<LinkFeatures
-				theme={props.theme}
+				theme={theme}
 				href="http://www.google.com.br"
 					>
 					{e}
