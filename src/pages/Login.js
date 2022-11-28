@@ -95,12 +95,9 @@ const Login: React.FC = (props) => {
 					<LoginBox theme={theme}>
 						<LoginForm
 							id="loginForm"
-				theme={theme}
-				onSubmit={(e) => handleLogin(e)}
-							action={process.env.REACT_APP_AUTH_LOGIN}
-				method="post"
-					>
-
+							theme={theme}
+							onSubmit={(e) => handleLogin(e)}
+						>
 							<Header theme={theme}>
 								Login
 							</Header>
@@ -108,11 +105,11 @@ const Login: React.FC = (props) => {
 								<Label theme={theme}>Usuário</Label>
 								<InputText
 									theme={theme}
-				onChange={(e) =>
-					setUserData({
-						username: e.target.value,
-						password: userData.password
-					})}
+									onChange={(e) =>
+										setUserData({
+											username: e.target.value,
+											password: userData.password
+										})}
 									type="text"
 									value={userData.username}
 									name="username"
@@ -123,28 +120,28 @@ const Login: React.FC = (props) => {
 								<Label theme={theme}>Senha</Label>
 								<InputText
 									theme={theme}
-				onChange={(e) =>
-					setUserData({
-						username: userData.username,
-						password: e.target.value
-					})}
+									onChange={(e) =>
+										setUserData({
+											username: userData.username,
+											password: e.target.value
+										})}
 									type="password"
 									value={userData.password}
 									name="password"
 									required
 								/>
 							</FormField>
-						<ButtonField>
-							<Spacer>
-							</Spacer>
-					<Button
-				id="submitButton"
-								onClick={handleLogin}
-								theme={theme}>
-								Enviar
-							</Button>
+							<ButtonField>
+								<Spacer>
+								</Spacer>
+								<Button
+									id="submitButton"
+									onClick={handleLogin}
+									theme={theme}>
+									Enviar
+								</Button>
 
-						</ButtonField>
+							</ButtonField>
 						</LoginForm>
 
 					</LoginBox>
