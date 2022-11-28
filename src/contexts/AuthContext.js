@@ -26,7 +26,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 		// TODO: limpar os cookies de sessão
 		sessionStorage.removeItem('@App:user');
 		localStorage.removeItem('@App:user');
-		window.location.replace(process.env.REACT_APP_AUTH_LOGOUT);
 	}
 
 	useEffect(() => {
@@ -43,7 +42,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 		</AuthContext.Provider>
 	);
 };
-
 
 
 async function postData(url = '', data = {}) {
