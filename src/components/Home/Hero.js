@@ -39,13 +39,24 @@ min-height: 0.5rem;
 `;
 
 const CallToAction = styled.button`
-background-color: #257eff;
+background-color: ${(props) => props.theme.highlight};
 border: 0;
 border-radius: 1rem;
 padding: 1rem;
 font-weight: bold;
 font-size: 1.5rem;
 max-width 30vw;
+
+&:hover {
+box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem grey;
+transition: all 0.2s ease-in-out;
+}
+
+&:focus {
+box-shadow: 0.2rem 0.2rem 0.2rem 0.1rem grey;
+filter: brightness(0.9);
+transition: all 0.2s ease-in-out;
+}
 `;
 
 function HeroHeader ({theme}) {

@@ -1,4 +1,6 @@
 * cliente
+** componentes
+*** fazer um componente de popup
 ** eslint
 ** home
 *** botao like nas quotes
@@ -6,10 +8,15 @@
 *** consertar a fonte (source API) das quotes
 *** layout responsivo
 *** consertar a formatação da data do último login
+*** desafio diário com estatísticas
+** trilha
+*** alinhar o spinner de loading na horizontal
+** escrita
+*** fazer o render de um popup com as instruções da instância atual do exercício
 * mvp
 ** public index
 *** trocar o logo do react
-** home
+** home 
 *** créditos do livro
 *** arrumar uma citação boa sobre escrita e adicionar elas na api
 *** no máximo 20 palavras no texto do hero
@@ -18,9 +25,9 @@
 id exercicio
 fetch id exercise pra api
 pego a resposta do server
-mostro um popup com as informações
+mostro um div com as informações na descrição
 fecho o popup qdo tiver um clique
 redireciono pro escrita
 ** escrita
-*** montar um popup que renderiza a atividade do servidor
+*** montar um popup que renderiza a atividade da API servidor
 

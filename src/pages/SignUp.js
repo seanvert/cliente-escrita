@@ -1,15 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
-
-const Button = styled.button`
-border: none;
-border-radius: 1rem;
-min-height: 2.5rem;
-color: ${props => props.theme.foreground};
-background: ${props => props.theme.highlight};
-font-weight: bold;
-`;
+import Button from "../components/Button";
+import WavesSVG from "../components/WavesSVG";
 
 const InputTexto = styled.input`
 position: relative;
@@ -71,6 +64,7 @@ const SignUp: React.FC = (props) => {
 		<ThemeContext.Consumer>
 			{theme =>
 				<LayoutSignUp>
+					<WavesSVG />
 					<Spacer>
 					</Spacer>
 					<FormSignUp theme={theme}
@@ -87,7 +81,7 @@ const SignUp: React.FC = (props) => {
 						<FormField>
 							<Label theme={theme}>Sobrenome</Label>
 							<InputTexto theme={theme}
-										required name="last_name" />
+										required name="lastName" />
 						</FormField>
 						
 						<FormField>

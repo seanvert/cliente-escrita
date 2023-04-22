@@ -16,6 +16,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 									   JSON.stringify(json.user));
 				  sessionStorage.setItem('@App:user',
 										 JSON.stringify(json.user));
+
 				  window.location.replace(process.env.REACT_APP_URL);
 			  })
 			  .catch((e) => console.log(e));
@@ -26,6 +27,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 		// TODO: limpar os cookies de sessão
 		sessionStorage.removeItem('@App:user');
 		localStorage.removeItem('@App:user');
+		window.location.replace("http://192.168.0.100:8000/auth/logout");
 	}
 
 	useEffect(() => {

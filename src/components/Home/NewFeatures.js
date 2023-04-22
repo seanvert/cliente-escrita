@@ -19,7 +19,7 @@ align-self: center;
 `;
 
 function NewFeatures({theme}) {
-	// TODO: montar um esquema disso
+	// TODO: montar um schema disso
 	const features = ['automatizar quotes',
 					  'adicionar mais exercícios',
 					  'permitir download dos textos',

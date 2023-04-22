@@ -16,7 +16,6 @@ text-align: justify;
 padding: 2rem;
 margin: 1rem;
 
-
 &:focus {
 outline: none
 }
@@ -51,13 +50,13 @@ function TextBox({
         theme={theme}
         placeholder="Escreva aqui"
         autoFocus
-        name="conteudo"
+        name="contents"
         value={text}
       onChange={(e) => {
 		  handleChange(e);
 	  }} />
     </Form>
   );
-}
+};
 
 export default TextBox;

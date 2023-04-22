@@ -5,12 +5,12 @@ import React from 'react';
 // example
 // https://hookagency.com/wp-content/uploads/2021/08/lemon-lime-700x467.png
 const ThemeContext = React.createContext({
-  background: '#f3ffed',
-  highlight: '#ffe26a',
-  background_dark: '#75c9b7',
-  background_light: '#c7ddcc',
-  foreground: '#16123f',
-  setTheme: () => {},
+	background: '#f3ffed',
+	highlight: '#CEE2D1',
+	background_dark: '#75c9b7',
+	background_light: '#c7ddcc',
+	foreground: '#16123f',
+	setTheme: () => {},
 });
 //	"#abd699",
 export default ThemeContext;

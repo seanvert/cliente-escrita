@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import Button from '../Button';
 import ThemeContext from '../../contexts/ThemeContext';
 import AuthContext from '../../contexts/AuthContext';
@@ -31,20 +31,17 @@ function ConfigPopupExercise({
 		toggleVisibilityFunction();
 	}
 
-	useEffect(() => {
-		
-	}, []);
-
+				// 	<SettingField>
+				// 	Definir como padrão
+				// 	<SetDefaultBox
+				// type="checkbox"
+				// checked={exercise.defaultExercise}
+				// onClick={() => setDefaultExercise(!defaultExercise)}
+				// 	/>
+				// 	</SettingField>
 	return (
 					<LayoutConfigsPopup>
-					<SettingField>
-					Definir como padrão
-					<SetDefaultBox
-				type="checkbox"
-				checked={exercise.defaultExercise}
-				onClick={() => setDefaultExercise(!defaultExercise)}
-					/>
-					</SettingField>
+
 
 					<SettingField>
 					Tempo máximo em segundos
@@ -58,7 +55,7 @@ function ConfigPopupExercise({
 				onClick={handleClick}
 				theme={theme}
 					>
-					salvar
+					Salvar
 				</Button>
 					</LayoutConfigsPopup>
 

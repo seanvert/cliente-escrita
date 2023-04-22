@@ -1,17 +1,10 @@
-
 import React, { useState, useEffect, useContext } from 'react';
 import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
 import AuthContext from "../contexts/AuthContext";
-
-const Button = styled.button`
-border: none;
-border-radius: 1rem;
-min-height: 2.5rem;
-color: ${props => props.theme.foreground};
-background: ${props => props.theme.highlight};
-font-weight: bold;
-`;
+import Button from "../components/Button";
+import WavesSVG from "../components/WavesSVG";
+import InputBox from "../components/TextBox";
 
 const InputText = styled.input`
 position: relative;
@@ -82,7 +75,6 @@ const Login: React.FC = (props) => {
 
 	function handleLogin(e) {
 		e.preventDefault();
-		// fetch
 		auth.Login(userData);
 	}
 
@@ -90,6 +82,7 @@ const Login: React.FC = (props) => {
 		<ThemeContext.Consumer>
 			{theme =>
 				<LayoutLogin>
+					<WavesSVG />
 					<Spacer>
 					</Spacer>
 					<LoginBox theme={theme}>

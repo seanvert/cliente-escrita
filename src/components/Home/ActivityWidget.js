@@ -50,16 +50,16 @@ grid-gap: 1px;
 margin-right: 1px;
 `;
 
-function MonthActivityBar({theme}) {
+function MonthActivityBar({theme, key}) {
   return (
     <LayoutMonthlyBar>
-      <WeeklyActivityBar theme={theme} />
-      <WeeklyActivityBar theme={theme} />
-      <WeeklyActivityBar theme={theme} />
-      <WeeklyActivityBar theme={theme} />
+		  <WeeklyActivityBar key={key + "FirstWeek"} theme={theme} />
+      <WeeklyActivityBar key={key + "SecondWeek"} theme={theme} />
+      <WeeklyActivityBar key={key + "ThirdWeek"} theme={theme} />
+      <WeeklyActivityBar key={key + "FourthWeek"} theme={theme} />
     </LayoutMonthlyBar>
   );
-}
+};
 
 function ActivityWidget({theme}) {
   return (
@@ -73,6 +73,6 @@ function ActivityWidget({theme}) {
       <MonthActivityBar key="sixthMonth" theme={theme} />
     </LayoutActivityWidget>
   );
-}
+};
 
 export default ActivityWidget;

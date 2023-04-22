@@ -8,7 +8,6 @@ import ThemeContext from "../contexts/ThemeContext";
 const Contents = styled.div`
 flex-grow: 1;
 display: flex;
-width: 100vw;
 `;
 
 const linearGradient = (color1, color2) => {
@@ -24,7 +23,7 @@ display: flex;
 height: 100vh;
 width: 100vw;
 flex-direction: column;
-background: ${props => linearGradient(props.theme.background,
+background: ${props => linearGradient(props.theme.background_dark,
  props.theme.background_light)};
 overflow-y: scroll;
 `;

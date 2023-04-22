@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button";
 import styled from "styled-components";
 import ConfigPopupExercise from "./ConfigPopupExercise";
-
+import fetchGetAPI from "../../lib/fetchAPI";
 
 const ExerciseDescription = styled.div`
 flex-grow: 1;
@@ -25,7 +25,8 @@ function DetailedView({
 	current
 }) {
 	const [configsVisible, setConfigsVisible] = useState(false);
-
+	const [loading, setLoading] = useState(true);
+	const [exerciseInstructions, setExerciseInstructions] = useState();
 	
 	function toggleConfigsView() {
 		if (configsVisible) {
@@ -34,9 +35,18 @@ function DetailedView({
 			setConfigsVisible(true);
 		}
 	}
-	
+
+	useEffect(() => {
+		const url = process.env.REACT_APP_DB_HOST_EXERCISES;
+		fetchGetAPI(url + "/" + current._id,
+					setExerciseInstructions,
+					setLoading);
+		console.log("exercise", exerciseInstructions);
+	}, [loading]);
 
 	function configsView(theme) {
+
+
 		if(configsVisible) {
 			return (
 					<ConfigPopupExercise
@@ -52,9 +62,6 @@ function DetailedView({
 		return (
 			<div>
 				<ControlsDetailedView>
-					<Button theme={theme}>
-						Pular
-					</Button>
 					<Button
 						onClick={toggleConfigsView}
 						theme={theme}>
@@ -64,6 +71,8 @@ function DetailedView({
 				{configsView(theme)}
 				<ExerciseDescription>
 					{current.contents}
+					<p>-----------------</p>
+					{exerciseInstructions.description}
 				</ExerciseDescription>
 			</div>
 		);

@@ -36,6 +36,6 @@ function Clock ({time, active, submit}: Tempo) {
 			</LayoutClock>
 		);
 	}
-}
+};
 
 export default Clock;

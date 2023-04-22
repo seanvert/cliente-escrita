@@ -14,6 +14,7 @@ padding-right: 2vw;
 padding-top: 1vh;
 padding-bottom: 1vh;
 border-radius: 4rem;
+z-index: 1;
 `;
 
 const Spacer = styled.div`
@@ -31,8 +32,10 @@ text-decoration: none;
 }
 
 &:hover {
-background-color: ${props => props.theme.highlight};
-border: 1px solid;
+box-shadow: 0.3rem 0.3rem 0.3rem 0.1rem grey;
+transition: all 0.2s ease-in-out;transition: all 0.2s ease-in-out;
+}
+
 }`;
 
 const LogoStyle = styled.img`
@@ -70,7 +73,7 @@ const Navbar: React.FC = (props) => {
 					</LoginLogoutBar>
 			);
 		}
-	}
+	};
 
 	function renderNavBarLoginRoutes (auth, theme) {
 		if (auth.signed) {
@@ -82,7 +85,7 @@ const Navbar: React.FC = (props) => {
 		} else {
 			return null;
 		}
-	}
+	};
 
 	function navBarLogoAuthRoute (auth, theme) {
 		if (auth.signed) {

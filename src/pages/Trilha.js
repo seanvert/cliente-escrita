@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import ThemeContext from "../contexts/ThemeContext";
 import ExerciseCard from "../components/Trilha/ExerciseCard";
 import AuthContext from "../contexts/AuthContext";
+import LoadingSpinner from "../components/LoadingSpinner";
+import fetchGetAPI from "../lib/fetchAPI.js";
 
 /* tela que vai seguir basicamente a organização do livro */
 /* mostrar o progresso nas atividades */
@@ -13,7 +15,6 @@ interface Exercise {
 	contents: String,
 }
 
-// FIXME isto daqui vai sair da API
 
 const LayoutTrilha = styled.div`
 width: 100vw;
@@ -22,7 +23,6 @@ flex-direction: column;
 padding-left: 4rem;
 padding-right: 4rem;
 padding-top: 1rem;
-
 `;
 
 function Trilha () {
@@ -30,34 +30,16 @@ function Trilha () {
 	const exerciseID = '';
 	const [exercises, setExercises] = useState([]);
 	const auth = useContext(AuthContext);
-	
 	const url = "http://192.168.0.100:8000/exercises";
 
-	const headersreq = {'Content-Type': 'application/x-www-form-urlencoded',
-						'Upgrade-Insecure-Requests': '1',};
-
 	useEffect(() => {
+		fetchGetAPI(url, setExercises, setLoading);
 		// TODO: user configs add 
-		var api = fetch(url, {
-			method: 'GET',
-			mode: 'cors',
-			credentials: 'include',
-			headers: headersreq,
-			redirect: 'follow',
-			referrerPolicy: 'no-referrer',
-		})
-			.then((response) => 
-				response.json())
-			.then((body) => {
-				setExercises(body.response);
-				setLoading(false);
-			});
-
 	}, [loading]);
 
 	if (loading) {
 		return (
-			<h1>Carregando...</h1>
+			<LoadingSpinner />
 		);
 	} else {
 
@@ -66,18 +48,6 @@ function Trilha () {
 				{theme => 
 					<LayoutTrilha theme={theme} id="organizacaoTrilha">
 						{exercises.map((exercise, index) => {
-
-							if (auth.signed) {
-								// TODO: isso daqui vai pro backend
-								// auth.user.config[index] = {
-								// 	exercise: atividade._id,
-								// 	config: {
-								// 		completed: false,
-								// 		time: atividade.defaultConfigs.time,
-								// 		default: false,
-								// 	}
-								// };
-							}
 							return <ExerciseCard
 									   key={exercise._id}
 									   index={index}
@@ -92,4 +62,3 @@ function Trilha () {
 };
 
 export default Trilha;
-

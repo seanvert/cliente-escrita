@@ -5,6 +5,6 @@ const Header: React.FC = ({theme}) => {
     return (
         <Navbar />
     );
-}
+};
 
 export default Header
