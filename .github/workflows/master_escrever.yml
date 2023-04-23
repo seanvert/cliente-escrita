@@ -53,4 +53,4 @@ jobs:
           app-name: 'escrever'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B5BB5794EE58408DB4C972C99715576B }}
-          package: .
+          package: build
