@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import ThemeContext from "../../contexts/ThemeContext";
 import CompletionIcon from "./CompletionIcon";
-import Button from "../Button";
+import ButtonToggleVisibility from '../ButtonToggleVisibility';
 import DetailedView from "./DetailedView";
 import AuthContext from "../../contexts/AuthContext";
 import fetchGetAPI from "../../lib/fetchAPI";
@@ -46,7 +46,6 @@ margin-bottom: 2rem;
 border: 1px solid;
 `;
 
-
 function ExerciseCard ({key, index, exercise}: Exercise) {
 	const auth = useContext(AuthContext);
 	const user = auth.user;
@@ -54,8 +53,11 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 	const [visible, setVisible] = useState(false);
 	// loading state whenever the user clicks to start an exercise
 	const [loading, setLoading] = useState(true);
-	const [exercises, setExercises] = useState();
+	const [exerciseText, setExerciseText] = useState();
 	var current = exercise;
+
+	useEffect(() => {
+	}, [loading])
 	
 	function changeVisibility() {
 		if (visible) {
@@ -65,31 +67,29 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 		}
 	}
 
-
 	function buttonName(visibilityState: bool) {
 		if (!visible) {
 			return "Expandir";
 		} else {
+			if (!exerciseText) {
+				const currentExerciseId = current._id;
+				const url = process.env.REACT_APP_DB_HOST_EXERCISES + `/${currentExerciseId}`;
+				fetchGetAPI(url, setExerciseText, setLoading);
+			} else {
+				// se ele estiver definido, não faz request
+			}
 			return "Esconder";
 		}
 	};
 
 	function handleStart () {
-		// TODO: stub da função que começa o exercício
-		const url = process.env.REACT_APP_DB_HOST_EXERCISES;
-		// TODO: stub da request que vou mandar na api pra fazer exercicios
-		fetchGetAPI(url, setExercises, setLoading);
-		// TODO: recebe um redirect para a tela da escrita,
-		// manda as instruções do exercício
-		
+		sessionStorage.setItem('currentExercise', exerciseText);
+		window.location.replace(process.env.REACT_APP_URL + '/escrita');
 	};
-	// TODO: useEffect loading do exercise
-	// set to false
-	// TODO: função que vai dentro do useEffect
+
 	// redireciona pro escrita e manda as informações do exercício
 
-
-	// props.index índice ddo vetor do usuário
+	// props.index índice do vetor do usuário
 	// user.configs[props.index].config.completed
 	return (
 		<ThemeContext.Consumer>
@@ -105,13 +105,9 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 							theme={theme}>
 							{current.name}
 						</ExerciseName>
-						
-						<Button
-							onClick={handleStart}
-							theme={theme}>
-							Começar
-						</Button>
-						
+
+						<ButtonToggleVisibility theme={theme} disabled={loading} onClick={handleStart} />
+
 						<ButtonToggleDescription
 							id="toggleDescriptionButton"
 							onClick={changeVisibility}>
