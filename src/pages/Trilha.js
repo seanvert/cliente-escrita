@@ -27,7 +27,6 @@ padding-top: 1rem;
 
 function Trilha () {
 	const [loading, setLoading] = useState(true);
-	const exerciseID = '';
 	const [exercises, setExercises] = useState([]);
 	const auth = useContext(AuthContext);
 	const url = "http://192.168.0.100:8000/exercises";

@@ -18,31 +18,32 @@ const LayoutList = styled.ul`
 align-self: center;
 `;
 
-function NewFeatures({theme}) {
-	// TODO: montar um schema disso
+function NewFeatures({ theme }) {
+	// TODO: montar o endpoint da api
+	// TODO: fetch no endpoint da API e pegar as n últimas funcionalidades
 	const features = ['automatizar quotes',
-					  'adicionar mais exercícios',
-					  'permitir download dos textos',
-					  'montar nuvem de palavras',
-					  'sugestões'];
+		'adicionar mais exercícios',
+		'permitir download dos textos',
+		'montar nuvem de palavras',
+		'sugestões'];
 	return (
-			<LayoutNewFeatures theme={theme}>
+		<LayoutNewFeatures theme={theme}>
 			<FeaturesHeader theme={theme}>
-			Funcionalidades
-		</FeaturesHeader>
+				Funcionalidades
+			</FeaturesHeader>
 			<LayoutList>
-			{features.map((e) => (
+				{features.map((e) => (
 					<li key={e}>
-					<LinkFeatures
-				theme={theme}
-				href="http://www.google.com.br"
-					>
-					{e}
-				</LinkFeatures>
+						<LinkFeatures
+							theme={theme}
+							href="http://www.google.com.br"
+						>
+							{e}
+						</LinkFeatures>
 					</li>
-			))}
-		</LayoutList>
-			</LayoutNewFeatures>
+				))}
+			</LayoutList>
+		</LayoutNewFeatures>
 	);
 	// TODO: colocar uma caixa de sugestões
 }

@@ -12,8 +12,6 @@ font-size: 1.5rem;
 font-family: 'Libre Baskerville', serif;
 `;
 
-
-// TODO: arrumar um quote que preste sobre escrita
 const LayoutQuote = styled.div`
 display: grid;
 background-color: black;
@@ -52,13 +50,13 @@ padding-right: 2rem;
 z-index: 2;
 `;
 
-function QuoteFigureCaption({theme}) {
+function QuoteFigureCaption({ theme }) {
 	return (
-			<FigCaption>
+		<FigCaption>
 			&mdash; Jeremy Keith,
-		{' '}
+			{' '}
 			<cite>Mental models</cite>
-			</FigCaption>
+		</FigCaption>
 	);
 }
 
@@ -83,20 +81,18 @@ display: flex;
 justify-content: center;
 `;
 
-			// <AuthorPortraitImageBackground>
-			// </AuthorPortraitImageBackground>
-function AuthorPortrait({author}) {
-	
-	return(
-			<LayoutAuthorPortrait>
-			
+function AuthorPortrait({ author }) {
+
+	return (
+		<LayoutAuthorPortrait>
+
 			<AuthorPortraitImage src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Clarice_Lispector_%28cropped%29.jpg/200px-Clarice_Lispector_%28cropped%29.jpg" />
 
-			</LayoutAuthorPortrait>
+		</LayoutAuthorPortrait>
 	);
 };
 
-function QuoteBox({theme}) {
+function QuoteBox({ theme }) {
 	const [loading, setLoading] = useState(true);
 	const url = "http://192.168.0.100:8000/quotes";
 	const [quote, setQuote] = useState({});
@@ -112,27 +108,27 @@ function QuoteBox({theme}) {
 		);
 	} else {
 		return (
-				<LayoutQuote theme={theme}>
-				
-				<LayoutQuoteFigure>
-				
-				<QuoteFigure theme={theme}>
-				
-				<Quote theme={theme}>
-				{quote.quote}
-			</Quote>
-				
-				<QuoteFigureCaption
-			theme={theme}
-			source={quote.source}
-				/>
-				</QuoteFigure>
-				
-				</LayoutQuoteFigure>
-				
-			<AuthorPortrait />
+			<LayoutQuote theme={theme}>
 
-				</LayoutQuote>
+				<LayoutQuoteFigure>
+
+					<QuoteFigure theme={theme}>
+
+						<Quote theme={theme}>
+							{quote.quote}
+						</Quote>
+
+						<QuoteFigureCaption
+							theme={theme}
+							source={quote.source}
+						/>
+					</QuoteFigure>
+
+				</LayoutQuoteFigure>
+
+				<AuthorPortrait />
+
+			</LayoutQuote>
 		);
 	}
 }

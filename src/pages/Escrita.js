@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ThemeContext from "../contexts/ThemeContext";
 import Clock from "../components/Escrita/Clock";
 import TextBox from "../components/Escrita/TextBox";
+import Popup from '../components/Popup';
 
 // TODO: com opção para esconder o contador
 // TODO: colocar alguma coisa para mostrar palavras da atividade
@@ -26,16 +27,16 @@ function contaPalavras(texto: string): number {
 
 function calculaPontuacao(texto: string, 
 						  funcaoValidadora: (arg0: string) => number): number {
-							  // TODO
+							  // TODO: inicialmente vou fazer só uma contagem de palavras
+							  // mas imagino que seria interessante somar algumas coisa
+							  // ou até dar alguma liberdade para o usuário escolher o que 
+							  // vai entrar na pontuacao
 							  /* parâmetros: texto a ser avaliado
 								 funcaoValidadora função que checa as palavras,
 								 elas trocam conforme mudam as atividades */
 							  // retorna a pontuação
 							  return 1;
-						  }
-
-// TODO montar o dot env com as API keys 
-// TODO: pensar em alguma função externa para calcular a pontuação, 
+						  } 
 
 interface ContagemDePalavras {
 	contagem: number
@@ -97,6 +98,9 @@ function Exercise() {
 		</ThemeContext.Consumer>
 	);
 };
+
+// TODO: renderizar o popup toda a vez que for algum exercício diferente
+// TODO: recuperar o enunciado do browser com o currentExercise no sessionStorage
 
 const Escrita: React.FC = (props) => {
     return (

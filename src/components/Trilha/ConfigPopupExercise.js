@@ -21,7 +21,6 @@ function ConfigPopupExercise({
 	const [defaultExercise, setDefaultExercise] = useState(false);
 	const [maxTime, setMaxTime] = useState(120);
 	const auth = useContext(AuthContext);
-	// TODO: get an exercise id
 	const id = exercise._id;
 	function handleClick() {
 		// TODO: send configs to api
@@ -31,33 +30,25 @@ function ConfigPopupExercise({
 		toggleVisibilityFunction();
 	}
 
-				// 	<SettingField>
-				// 	Definir como padrão
-				// 	<SetDefaultBox
-				// type="checkbox"
-				// checked={exercise.defaultExercise}
-				// onClick={() => setDefaultExercise(!defaultExercise)}
-				// 	/>
-				// 	</SettingField>
 	return (
-					<LayoutConfigsPopup>
+		<LayoutConfigsPopup>
 
 
-					<SettingField>
-					Tempo máximo em segundos
-					<SetDefaultBox
-				value={maxTime}
-				onChange={(e) => { setMaxTime(e.target.value); }}
-					/>
-					</SettingField>
+			<SettingField>
+				Tempo máximo em segundos
+				<SetDefaultBox
+					value={maxTime}
+					onChange={(e) => { setMaxTime(e.target.value); }}
+				/>
+			</SettingField>
 
-					<Button
+			<Button
 				onClick={handleClick}
 				theme={theme}
-					>
-					Salvar
-				</Button>
-					</LayoutConfigsPopup>
+			>
+				Salvar
+			</Button>
+		</LayoutConfigsPopup>
 
 	);
 }

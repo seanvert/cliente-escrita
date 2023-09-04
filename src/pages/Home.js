@@ -10,8 +10,6 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import fetchGetAPI from "../lib/fetchAPI";
 import WavesSVG from "../components/WavesSVG";
 
-// TODO: mudar o layout pra ficar responsivo
-
 const LayoutHome = styled.div`
 width: 100vw;
 padding-left: 3rem;
@@ -47,7 +45,7 @@ interface quoteapi {
 			bookstoreLink: String,
 		},
 	},
-	
+
 };
 
 
@@ -62,26 +60,26 @@ flex-direction: column;
 border: 1px solid;
 `;
 
-function GreetUser({theme}) {
+function GreetUser({ theme }) {
 	const auth = useContext(AuthContext);
-	
-		return (
-			<LayoutGreetUser>
-				<UserGreeting
-			id="userGreeting"
-			theme={theme}
-				>
+
+	return (
+		<LayoutGreetUser>
+			<UserGreeting
+				id="userGreeting"
+				theme={theme}
+			>
 				Que bom te ver de volta, {auth.user.username}!
 			</UserGreeting>
-				Seu último login foi em {auth.user.last_login}
+			Seu último login foi em {auth.user.last_login}
 			<LastExercises />
-			</LayoutGreetUser>
-		);
+		</LayoutGreetUser>
+	);
 };
 
-function UserWidgets({theme}) {
+function UserWidgets({ theme }) {
 	const auth = useContext(AuthContext);
-	if(auth.signed) {
+	if (auth.signed) {
 		return (
 			<ActivityWidget theme={theme} />
 		);
@@ -101,21 +99,21 @@ function LastExercises() {
 		// TODO: user configs add
 		fetchGetAPI(url, setTexts, setLoading);
 	}, [loading]);
-	
+
 	if (loading) {
 		return (
-				<LoadingSpinner />
+			<LoadingSpinner />
 		);
 	} else {
 		return (
 			<div>
 				{texts.map((text, index) => {
-					return(
+					return (
 						<div>
 							{text.contents}
 						</div>
 					);
-			})}
+				})}
 			</div>
 		);
 	}
@@ -124,8 +122,8 @@ function LastExercises() {
 function Home() {
 	const theme = useContext(ThemeContext);
 	const auth = useContext(AuthContext);
-	if(!auth.signed) {
-		return(
+	if (!auth.signed) {
+		return (
 			<LayoutLanding>
 				<WavesSVG />
 				<Hero theme={theme} />
@@ -133,14 +131,14 @@ function Home() {
 			</LayoutLanding>
 		);
 	} else {
-		return(
+		return (
 			<LayoutHome>
 				<GreetUser theme={theme} />
 				<QuoteBox theme={theme}>
 				</QuoteBox>
 				<NewFeatures theme={theme} />
 				<UserWidgets theme={theme} />
-				</LayoutHome>
+			</LayoutHome>
 		);
 	}
 };
