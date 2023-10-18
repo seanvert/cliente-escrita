@@ -22,11 +22,13 @@ padding-left: 1rem;
 function DetailedView({
 	visible,
 	theme,
-	current
+	current,
+	exerciseInstructions,
+	setExerciseInstructions
 }) {
 	const [configsVisible, setConfigsVisible] = useState(false);
 	const [loading, setLoading] = useState(true);
-	const [exerciseInstructions, setExerciseInstructions] = useState();
+	
 	
 	function toggleConfigsView() {
 		if (configsVisible) {
@@ -71,8 +73,6 @@ function DetailedView({
 				{configsView(theme)}
 				<ExerciseDescription>
 					{current.contents}
-					<p>-----------------</p>
-					{exerciseInstructions.description}
 				</ExerciseDescription>
 			</div>
 		);

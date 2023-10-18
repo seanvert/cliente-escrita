@@ -2,10 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components';
 import ThemeContext from "../../contexts/ThemeContext";
 import CompletionIcon from "./CompletionIcon";
-import ButtonToggleVisibility from '../ButtonToggleVisibility';
+import StartButton from './StartButton';
 import DetailedView from "./DetailedView";
 import AuthContext from "../../contexts/AuthContext";
 import fetchGetAPI from "../../lib/fetchAPI";
+import Popup from "../Popup";
 
 const ExerciseName = styled.h3`
 color: ${props => props.theme.foreground};
@@ -54,7 +55,9 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 	// loading state whenever the user clicks to start an exercise
 	const [loading, setLoading] = useState(true);
 	const [exerciseText, setExerciseText] = useState();
+	const [visiblePopup, setVisiblePopup] = useState(false);
 	var current = exercise;
+	const [exerciseInstructions, setExerciseInstructions] = useState('teste');
 
 	useEffect(() => {
 	}, [loading])
@@ -84,7 +87,7 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 
 	function handleStart () {
 		sessionStorage.setItem('currentExercise', exerciseText);
-		window.location.replace(process.env.REACT_APP_URL + '/escrita');
+		setVisiblePopup(true);
 	};
 
 	// redireciona pro escrita e manda as informações do exercício
@@ -105,8 +108,8 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 							theme={theme}>
 							{current.name}
 						</ExerciseName>
-
-						<ButtonToggleVisibility theme={theme} disabled={loading} onClick={handleStart} />
+						<Popup text={exerciseInstructions} visible={visiblePopup} setVisible={setVisiblePopup} />
+						<StartButton theme={theme} disabled={loading} onClick={handleStart} />
 
 						<ButtonToggleDescription
 							id="toggleDescriptionButton"
@@ -119,7 +122,9 @@ function ExerciseCard ({key, index, exercise}: Exercise) {
 					<DetailedView
 						visible={visible}
 						theme={theme}
-						current={current} />
+						current={current}
+						exerciseInstructions={exerciseInstructions}
+						setExerciseInstructions={setExerciseInstructions} />
 				</ItemExercises>
 			}
 		</ThemeContext.Consumer>

@@ -1,16 +1,17 @@
 import React from 'react';
-import Button from './Button';
+import Button from '../Button';
 
-function ButtonToggleVisibility({ theme, disabled, onClick }) {
+function StartButton({ theme, disabled, onClick }) {
+    var buttonText = "Começar";
     if (!disabled) {
         return (
             <Button
                 onClick={onClick}
                 theme={theme}>
-                Começar
+                {buttonText}
             </Button>
         );
     }
 }
 
-export default ButtonToggleVisibility;
+export default StartButton;

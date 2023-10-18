@@ -45,7 +45,7 @@ function Trilha () {
 		return (
 			<ThemeContext.Consumer>
 				{theme => 
-					<LayoutTrilha theme={theme} id="organizacaoTrilha">
+					<LayoutTrilha theme={theme} id="organizacaoTrilha">				
 						{exercises.map((exercise, index) => {
 							return <ExerciseCard
 									   key={exercise._id}
