@@ -1,3 +1,5 @@
+// Popup component 
+
 import React from "react";
 import styled from "styled-components";
 import Button from './Button';
@@ -34,7 +36,7 @@ const Popup: React.FC = ({ text, visible, setVisible }) => {
             <>
             {visible && <Overlay onClick={() => setVisible(false)} />}
             <LayoutPopup>
-                <Button onClick={setVisible}>X</Button>
+                <Button onClick={() => setVisible(false)}>X</Button>
                 {text.description}
                 <Button onClick={onClick}>Escrever</Button>
             </LayoutPopup>

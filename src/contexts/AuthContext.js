@@ -38,7 +38,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 	}, []);
 	
 	return (
-			<AuthContext.Provider value={{ signed: Boolean(user),
+			<AuthContext.Provider value={{ signed: Boolean(user : IUser),
 										   user, Login, Logout }}>
 			{children}
 		</AuthContext.Provider>

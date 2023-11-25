@@ -1,12 +1,13 @@
+import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './layouts/Main';
-import Home from './pages/Home';
-import Escrita from './pages/Escrita';
-import Trilha from './pages/Trilha';
-import Login from './pages/Login';
-import NaoEncontrado from './pages/NaoEncontrado';
-import SignUp from './pages/SignUp';
+import Main from './layouts/Main.tsx';
+import Home from './pages/Home.tsx';
+import Escrita from './pages/Escrita.tsx';
+import Trilha from './pages/Trilha.tsx';
+import Login from './pages/Login.tsx';
+import NaoEncontrado from './pages/NaoEncontrado.tsx';
+import SignUp from './pages/SignUp.tsx';
 import { AuthProvider } from './contexts/AuthContext';
 
 function App() {

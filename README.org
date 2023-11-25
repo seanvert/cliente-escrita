@@ -9,13 +9,11 @@
 *** consertar a formatação da data do último login
 *** desafio diário com estatísticas
 ** trilha
-*** alinhar o spinner de loading na horizontal
+*** ajeitar a aparência do popup
 ** escrita
 * mvp
 * layout responsivo
 ** escrita
-*** colocar pra receber informações da página trilha
-*** montar popup com o enunciado do exercício
 ** signup
 *** adicionar google
 *** adicionar discord
@@ -30,7 +28,7 @@
 *** arrumar uma citação boa sobre escrita e adicionar elas na api
 *** no máximo 20 palavras no texto do hero
 ** trilhas
-*** redirect pra página do escrita
+
 
 id exercicio
 fetch id exercise pra api
